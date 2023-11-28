@@ -41,3 +41,9 @@
 // defining array is called model
 // model name must be singular and first letter capital
 // match
+
+
+// November 28, Tuesday, 2023
+// While searching, type doesn't matter
+// find({age:27})
+// find({age:{$gt:18}})

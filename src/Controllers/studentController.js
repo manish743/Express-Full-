@@ -22,7 +22,12 @@ export let createStudent =(req,res)=>{
 export let readStudent = async(req,res)=>{
     try{
         // let result = await Student.find({});
-        let result = await Student.find({name : "Samira", age : 20});
+        // let result = await Student.find({name : "Samira", age : 20});
+        // let result = await Student.find({age:{$gt:18}});
+        // let result = await Student.find({age:{$lt:21}});
+        // let result = await Student.find({name:{$ne:"Manish"}});
+        // let result = await Student.find({age:{$gte:20}});
+        let result = await Student.find({age:{$gt:15,$lt:25}});
         res.json(
             {
                 success : true,
