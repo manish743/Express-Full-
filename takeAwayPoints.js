@@ -28,3 +28,16 @@
 // To trigger next middleware we have to call next().
 // To trigger normal middleware we have to call next().
 // To trigger error middleware we have to call next(variable).
+
+
+// November 23, 2023, Thursday
+// npm i mongoose
+
+// November 24, 2023, Friday
+// MongoDB stores data as array of objects
+// array => model
+// object => schema
+// defining objects is called schema
+// defining array is called model
+// model name must be singular and first letter capital
+// match
