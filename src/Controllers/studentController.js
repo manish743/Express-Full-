@@ -27,7 +27,7 @@ export let readStudent = async(req,res)=>{
         // let result = await Student.find({age:{$lt:21}});
         // let result = await Student.find({name:{$ne:"Manish"}});
         // let result = await Student.find({age:{$gte:20}});
-        let result = await Student.find({age:{$gt:15,$lt:25}});
+        let result = await Student.find({age:{$gte:15,$lte:25}});
         res.json(
             {
                 success : true,
