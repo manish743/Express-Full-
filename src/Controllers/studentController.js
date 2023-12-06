@@ -36,10 +36,18 @@ export let readStudent = async(req,res)=>{
         // let result = await Student.find({$and:[{age:{$gte:15}},{age:{$lte:20}}]});
         // find those user which doesn't conatain name: Manish, Manisha
         // let result = await Student.find({$and:[{name:{$ne:"Manish"}}, {name:{$ne:"Manisha"}}]});
-        let query = req.query
+        // let query = req.query
         // let result = await Student.find({$and:[{name:query.name},{age:query.age}]})
-        let result = await Student.find(query)
-        console.log(query)
+        // let result = await Student.find(query)
+        // let result = await Student.find({}).sort("-name");
+        // let result = await Student.find({}).sort("name -age");
+        // let result = await Student.find({age:{$gte:15}}).select("name -_id");
+        // let result = await Student.find({}).limit(2);
+        // let result = await Student.find({}).skip(4);
+        // let result = await Student.find({}).limit(2).skip(2);
+        let brake = req.query.brake
+        let page = req.query.page
+        let result = await Student.find({}).limit(page-brake).skip((brake*page)+1)
         res.json(
             {
                 success : true,

@@ -47,3 +47,73 @@
 // While searching, type doesn't matter
 // find({age:27})
 // find({age:{$gt:18}})
+
+// November 29, Wednesday, 2023
+// Regex searching
+// find({name:/manish/})
+// find({name:/manish/i})
+// find({name:/ma/})
+// find({name:/^ma/})
+// find({name:/^ma/i})
+// find({name:/sh$/i})
+// regexr.com => site for testing regex
+// find({}).sort("name")
+// find({}).sort("-name")
+// find({}).sort("name age")
+// find({age:{$gte:40}}).select("name")
+// find has control over the object and select has control over the object property
+// Order => find,sort,select,skip,limit
+// brake = 2 , page = 3
+
+
+// November 30, 2023, Thursday
+// "1" - 1 => 0
+// except (+) operator other mathematical operators like -,*,/ will convert the string into number to perform mathematical operation.
+
+
+// December 1, 2023, Friday
+// manipulation
+// trim : true,
+// lowercase : true,
+// uppercase: true,
+// default : new Date()
+
+// validation
+// minLength:3
+// maxLength:10
+// min : 18
+// max : 40
+// minLength, maxLength in case of string and min, max in case of numbers
+// phoneNumber Validation => 
+// validate : (value)=>{
+//     if(age === 35){
+//         let error = new Error("Unable to register due to age factor");
+//         throw error
+//     }
+// }
+// regex is used for searching and validation
+// console.log(this.email)
+// this operator is not supported in arrow function
+// this operator can be used only in function
+
+
+// December 4, 2023, MOnday
+// npm i cors
+// cors is used to use API 
+// .populate() is used to use objects from another 
+// make .env at root directory
+// configure .env
+// make .env at root folder(it should not be inside src general error)
+// npm i dotenv
+
+// December 5, 2023, Tuesday
+// config() is used to get .env variable
+// package.json => packages that are needed to run the project are inside package.json
+// npm i => will install all needed dependencies 
+// npm i bcrypt
+// let password = "you@123"
+// let hashPassword = await bcrypt.hash(password,10);
+// console.log(hashPassword)
+
+// let isValidPassword = await bcrypt.compare(password, hashPassword);
+// console.log(isValidPassword)
