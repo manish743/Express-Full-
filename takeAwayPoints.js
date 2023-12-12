@@ -117,3 +117,23 @@
 
 // let isValidPassword = await bcrypt.compare(password, hashPassword);
 // console.log(isValidPassword)
+
+// December 6, 2023, Wednesday
+// npm i jsonwebtoken
+// npm i nodemailer
+// npm i multer
+// let infoObject = {
+//     id: "53245268",
+//   };
+//   let secretKey = "hsinam";
+//   let expiryInfo = {
+//     expiresIn: "365d", //expiry Info should be in same format as here
+//   };
+  
+//   let token = jwt.sign(infoObject, secretKey, expiryInfo);
+//   console.log(token);
+
+
+// December 7, 202, Thursday
+// Every file must be placed inside static folder so that we could get file through link
+// To make static folder => expressApp.use(express.static("./filepath"));
