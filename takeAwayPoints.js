@@ -134,6 +134,46 @@
 //   console.log(token);
 
 
-// December 7, 202, Thursday
+// December 7, 2023, Thursday
 // Every file must be placed inside static folder so that we could get file through link
 // To make static folder => expressApp.use(express.static("./filepath"));
+
+
+// December 12, 2023, Tuesday 
+// success
+// 2XX
+// 200  => get,delete
+// 201 => post, patch
+// failure
+// 4XX
+// 404 => not found
+
+
+// Login Management System
+// 1. Register =>   
+//      -> save data to database
+//      -> verify email
+// 2. Login
+// 3. My profile
+// 4. My profile update
+// 5. Update password
+// 6. Forgot and reset password
+    // forgot password
+    // reset password
+// 7. Delete user
+// 8. Read all user
+// 9. Read specific user
+
+
+// Status code
+// success => 2XX
+// create => 201
+// read => 200
+// update => 201
+// delete => 200
+
+// error => 4XX
+// 401 => token not valid
+// 403 => token is valid but not authorized
+// 404 => API not found
+// 409 => conflict(duplicate)

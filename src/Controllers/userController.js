@@ -22,9 +22,9 @@ export let createUser = async (req, res) => {
     //   html: `<h1>Hello World<h1>`,
     // });
 
-    res.json({
+    res.status(201).json({
       success: true,
-      message: "User created successfully.",
+      message: "User created successfully",
       result: result,
     });
   } catch (error) {
@@ -38,7 +38,7 @@ export let createUser = async (req, res) => {
 export let readUser = async (req, res) => {
   try {
     let result = await User.find({});
-    res.json({
+    res.status(200).json({
       success: true,
       message: "User read successfully",
       result: result,
@@ -75,7 +75,7 @@ export let deleteUser = async (req, res) => {
 
   try {
     let result = await User.findByIdAndDelete(userId);
-    res.json({
+    res.status(200).json({
       success: true,
       message: "User deleted successfully",
       result: result,
@@ -151,3 +151,56 @@ export let loginUser = async (req, res) => {
     });
   }
 };
+
+export let myProfile = async (req, res, next) => {
+  // pass token from postman
+  // get token in our application
+  // validate token
+  // if token is valid send my profile information
+  // else throw error
+
+  // let bearerToken = req.headers.authorization;
+  // let token = bearerToken.split(" ")[1]
+
+  try {
+    // let infoObj = jwt.verify(token, secretKey);
+    // console.log(infoObj)
+    let id = req.id;
+
+    let result = await User.findById(id);
+    res.json({
+      success: true,
+      message: "myProfile read successfully",
+      result: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export let updateProfile = async (req, res, next) => {
+  let id = req.id;
+  let data = req.body;
+  delete data.email;
+  delete data.password;
+  try {
+    // let result = await User.findByIdAndUpdate(id, data);
+    let result = await User.findByIdAndUpdate(id, data, { new: true });
+
+    res.json({
+      success: true,
+      message: "User credentials updated successfully",
+      result: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export let deleteProfile = () => {};

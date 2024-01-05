@@ -10,6 +10,7 @@ import userSchema from "./userSchema.js";
 import playerSchema from "./playerSchema.js";
 import productSchema from "./productSchema.js";
 import productReviewSchema from "./productReviewSchema.js";
+import registerSchema from "./registerSchema.js";
 
 export let Student = model("Student",studentSchema);
 export let Teacher = model("Teacher",teacherSchema);
@@ -22,3 +23,4 @@ export let User = model("User", userSchema);
 export let Player = model("Player", playerSchema);
 export let Product = model("Product", productSchema);
 export let ProductReview = model("ProductReview", productReviewSchema);
+export let Register = model("Register", registerSchema);

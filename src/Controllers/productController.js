@@ -1,16 +1,17 @@
 import { config } from "dotenv";
 import { Product } from "../Schema/model.js";
 
-export let createProduct = (req, res) => {
+export let createProduct = async(req, res) => {
   try {
     let data = req.body;
-    Product.create(data);
-    res.json({
+    let result = await Product.create(data);
+    res.status(201).json({
       success: true,
       message: "Product created successfully.",
+      result : result
     });
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       message: error.message,
     });

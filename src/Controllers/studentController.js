@@ -1,18 +1,19 @@
 import { Student } from "../Schema/model.js";
 
-export let createStudent =(req,res)=>{
+export let createStudent = async(req,res)=>{
     try{
     let data = req.body;
-    Student.create(data);
-    res.json(
+    let result = await Student.create(data);
+    res.status(201).json(
         {
             success : true,
-            message : "Student created successfully."
+            message : "Student created successfully.",
+            result : result
         }
     )
     }
     catch(error){
-        res.json({
+        res.status(400).json({
             success : false,
             message : error.message
         })
@@ -103,6 +104,7 @@ export let deleteStudent = async(req,res)=>{
 
 export let readSpecificStudent = async(req,res)=>{
     let studentId = req.params.studentId
+    // console.log(req.params)
     try{
         let result = await Student.findById(studentId);
         res.json(

@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { createUser, deleteUser, loginUser, readSpecificUser, readUser, updateUser } from "../Controllers/userController.js";
+import { createUser, deleteUser, loginUser, myProfile, readSpecificUser, readUser, updateProfile, updateUser } from "../Controllers/userController.js";
+import { isAuthenticated } from "../middleware/isAuthenticated.js";
 
 let userRouter = Router();
 
@@ -11,6 +12,11 @@ userRouter
 userRouter
 .route("/login")
 .post(loginUser)
+
+userRouter
+.route("/myProfile")
+.get(isAuthenticated, myProfile)
+.patch(isAuthenticated, updateProfile)
 
 userRouter
 .route("/:userId")

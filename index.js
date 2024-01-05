@@ -35,6 +35,7 @@ expressApp.use(express.static("./public/"));
 // let swaggerJSDoc = require("swagger-jsdoc");
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
+import registerRouter from "./src/Router/registerRouter.js";
 
 // swaggerDefinitionObject
 let swaggerOptions = {
@@ -49,31 +50,31 @@ let swaggerOptions = {
       },
     ],
   },
-  apis : ["userRouter.js"]
+  apis: ["userRouter.js"],
 };
 
 let swaggerDocs = swaggerJSDoc(swaggerOptions);
 expressApp.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
-/** 
-* @swagger
-* /users:
-* get: 
-    * description : Use to read all users
-    * responses :
-    *      "200":
-    *      description : A successful response
-*/
+/**
+ * @swagger
+ * /users:
+ * get:
+ * description : Use to read all users
+ * responses :
+ *      "200":
+ *      description : A successful response
+ */
 
-/** 
-* @swagger
-* /users:
-* get: 
-    * description : Use to create users
-    * responses :
-    *      "200":
-    *      description : A successful response
-*/
+/**
+ * @swagger
+ * /users:
+ * get:
+ * description : Use to create users
+ * responses :
+ *      "200":
+ *      description : A successful response
+ */
 
 /**
  * @swagger
@@ -88,8 +89,6 @@ expressApp.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
     "result": null
 }
  */
-
-
 
 // expressApp.get("/user",(req,res)=>{
 //   console.log("Request accepted");
@@ -117,6 +116,7 @@ expressApp.use("/products", productRouter);
 expressApp.use("/productReviews", productReviewRouter);
 expressApp.use("/players", playerRouter);
 expressApp.use("/files", fileRouter);
+expressApp.use("/registers", registerRouter);
 
 // let password = "you@123"
 // let hashPassword = await bcrypt.hash(password,10);

@@ -43,6 +43,7 @@ let fileFilter = (req, file, cb) => {
     ".mp3",
     ".mp4",
     ".PNG",
+    ".docx"
   ];
 
   let originalName = file.originalname;
