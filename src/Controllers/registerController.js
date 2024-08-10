@@ -34,7 +34,7 @@ export let createRegister = async (req, res, next) => {
       html: `
       <h1>Your account has been created successfully.<h1>
       
-      <a href="http://localhost:8000/verify-email?token=${token}">http://localhost:8000/verify-email?token=${token}</a>
+      <a href="http://localhost:3000/verify-email?token=${token}">http://localhost:3000/verify-email?token=${token}</a>
       `,
     });
 
@@ -104,7 +104,7 @@ export let loginUser = async (req, res, next) => {
           res.json({
             success: true,
             message: "User login successful",
-            data : user,
+            data: user,
             token: token,
           });
         } else {
@@ -129,13 +129,13 @@ export let myProfile = async (req, res, next) => {
     let userId = req.id;
     let userDetails = await Register.findById(userId);
 
-    res.json({
+    res.status(200).json({
       success: true,
       message: "User credentials read successfully",
       result: userDetails,
     });
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       message: error.message,
     });
@@ -193,7 +193,7 @@ export let updatePassword = async (req, res, next) => {
       throw new Error("Password doesn't match");
     }
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       message: error.message,
     });
@@ -218,15 +218,15 @@ export let readAllUser = async (req, res, next) => {
 
 export let readSpecificUser = async (req, res, next) => {
   try {
-    let userId = req.params.id;
+    let userId = req.id;
     let result = await Register.findById(userId);
-    res.json({
+    res.status(200).json({
       success: true,
       message: "Specific user read successfully",
       result: result,
     });
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       message: error.message,
     });
@@ -292,7 +292,7 @@ export let forgotPassword = async (req, res, next) => {
         html: `
         <h1>Click the link given below to reset password<h1>
         
-        <a href="http://localhost:8000/reset-password?token=${token}">http://localhost:8000/reset-password?token=${token}</a>
+        <a href="http://localhost:3000/reset-password?token=${token}">http://localhost:3000/reset-password?token=${token}</a>
         `,
       });
 
@@ -307,7 +307,7 @@ export let forgotPassword = async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       message: error.message,
     });
@@ -331,11 +331,9 @@ export let resetPassword = async (req, res, next) => {
       result: updatePassword,
     });
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       message: error.message,
     });
   }
 };
-
-
